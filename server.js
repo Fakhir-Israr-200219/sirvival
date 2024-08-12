@@ -1,5 +1,6 @@
 const express = require("express");
-const router = require("./Routes/student.route");
+const StudentRouter = require("./Routes/student.route");
+const UserRouter = require("./Routes/user.route");
 const db = require("./Config/dbConnect");
 const errorHandler = require("./Middlewares/errorHandler");
 const dotenv = require("dotenv").config()
@@ -10,8 +11,8 @@ db();
 app.use(express.json());
 
 
-app.use("/student",router)
-
+app.use("/student",StudentRouter)
+app.use("/user",UserRouter);
 
 
 
